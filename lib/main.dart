@@ -10,6 +10,7 @@ void main() {
       // Shows Status bar and hides Navigation bar
     ],
   );
+  //sd
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
