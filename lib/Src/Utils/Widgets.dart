@@ -98,31 +98,41 @@ class MyButton extends StatelessWidget {
   }
 }
 
-
 class Mytextfield extends StatelessWidget {
   final String hinttext;
   TextEditingController controler;
-  Mytextfield({super.key, required this.hinttext, required this.controler});
+  Icon? suffixicon;
+  Color? bordercolor;
+  FocusNode? f;
+  Mytextfield(
+      {super.key,
+      required this.hinttext,
+      required this.controler,
+      this.suffixicon,
+      this.f,
+      this.bordercolor = Colors.black});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      focusNode: f,
       controller: controler,
       decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
           filled: true,
           fillColor: Colors.white,
-          border: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: Colors.black)),
-          enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: Colors.black)),
-          focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: Colors.black)),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(width: 2, color: bordercolor!)),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(width: 2, color: bordercolor!)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(width: 2, color: bordercolor!)),
           hintText: hinttext,
           labelStyle: const TextStyle(
             fontFamily: "montserrat",
           ),
+          suffixIcon: suffixicon,
           hintStyle: const TextStyle(
               fontFamily: "montserrat",
               color: Colors.grey,
@@ -131,8 +141,6 @@ class Mytextfield extends StatelessWidget {
     );
   }
 }
-
-
 
 class MypasswordTextfield extends StatelessWidget {
   TextEditingController controller;
@@ -159,6 +167,100 @@ class MypasswordTextfield extends StatelessWidget {
               color: Colors.grey,
               fontSize: 15,
               fontWeight: FontWeight.w600)),
+    );
+  }
+}
+
+
+
+////
+class categorywidget extends StatelessWidget {
+  final String categoryname;
+  final String categoryimg;
+  final VoidCallback ontap;
+  const categorywidget({
+    required this.categoryname,
+    required this.categoryimg,
+    required this.ontap,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: ontap,
+      child: Column(
+        children: [
+          Image.asset(categoryimg),
+          Text(
+            categoryname,
+            style: TextStyle(
+                fontFamily: "montserrat",
+                fontSize: 25,
+                color: AppColors.apporangecolor.withOpacity(.8),
+                fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+///
+
+class ImageAndTextWidget extends StatelessWidget {
+  final String imagePath;
+  final String text;
+
+  const ImageAndTextWidget({
+    super.key,
+    required this.imagePath,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Image.asset(
+          imagePath,
+          width: 100.0, // Adjust the image size as needed
+          height: 100.0,
+        ),
+        Text(
+          text,
+          style: const TextStyle(fontSize: 24),
+        ),
+      ],
+    );
+  }
+}
+
+class TextAndImageWidget extends StatelessWidget {
+  final String text;
+  final String imagePath;
+
+  const TextAndImageWidget({
+    super.key,
+    required this.text,
+    required this.imagePath,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          text,
+          style: const TextStyle(fontSize: 24),
+        ),
+        Image.asset(
+          imagePath,
+          width: 100.0, // Adjust the image size as needed
+          height: 100.0,
+        ),
+      ],
     );
   }
 }

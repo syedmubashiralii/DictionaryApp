@@ -1,3 +1,4 @@
+import 'package:dictionaryapp/Src/Presentation/MainDashboard.dart';
 import 'package:dictionaryapp/Src/Presentation/Resetpassword.dart';
 import 'package:flutter/material.dart';
 
@@ -117,7 +118,13 @@ class _LoginPageState extends State<LoginPage> {
                                       .buttoncolor, // Change this color to the desired one
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MainDashboard()));
+                              },
                               child: const Text(
                                 "Log in",
                                 style: TextStyle(
