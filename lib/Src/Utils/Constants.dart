@@ -25,4 +25,7 @@ class AppImages {
       "${imagesfolderpath}familysigncategory.png";
   static const String industrysigncategoryimg =
       "${imagesfolderpath}industrysigncategory.png";
+
+  static const String personimg = "${imagesfolderpath}person.png";
+  static const String gifimg = "${imagesfolderpath}gif.png";
 }

@@ -1,6 +1,9 @@
 import 'package:dictionaryapp/Src/Presentation/Categories/AlphabetSignCategory.dart';
 import 'package:dictionaryapp/Src/Presentation/Categories/FamilyDetailScreen.dart';
 import 'package:dictionaryapp/Src/Presentation/Categories/industryDetailScreen.dart';
+import 'package:dictionaryapp/Src/Presentation/LeaderBoardScreen.dart';
+import 'package:dictionaryapp/Src/Presentation/LearningGameScreen.dart';
+import 'package:dictionaryapp/Src/Presentation/SettingsScreen.dart';
 import 'package:dictionaryapp/Src/Utils/Constants.dart';
 import 'package:dictionaryapp/Src/Utils/Widgets.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +49,35 @@ class _MainDashboardState extends State<MainDashboard> {
                       bordercolor: AppColors.buttoncolor,
                       suffixicon: const Icon(Icons.search),
                     )),
+                const Spacer(),
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsScreen()));
+                    },
+                    icon: const Icon(Icons.settings)),
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LeaderBoardScreen()));
+                    },
+                    icon: const Icon(Icons.leaderboard)),
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const LearningGameScreen()));
+                    },
+                    icon: const Icon(Icons.gamepad)),
+                const SizedBox(
+                  width: 30,
+                ),
               ],
             ),
             Text(
@@ -55,6 +87,9 @@ class _MainDashboardState extends State<MainDashboard> {
                   fontSize: 40,
                   color: AppColors.apporangecolor.withOpacity(.8),
                   fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

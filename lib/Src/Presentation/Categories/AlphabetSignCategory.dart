@@ -59,6 +59,7 @@ class _AlphabetSignCategoryState extends State<AlphabetSignCategory> {
                     children: [
                       for (int i = 0; i < 9; i++) ...[
                         AlphabetWidget(
+                          containercolor: AppColors.alphabetcontainercolor,
                           alphabet: alphabets[i],
                           ontap: () {
                             Navigator.push(
@@ -80,6 +81,7 @@ class _AlphabetSignCategoryState extends State<AlphabetSignCategory> {
                     children: [
                       for (int i = 9; i < 18; i++) ...[
                         AlphabetWidget(
+                          containercolor: AppColors.alphabetcontainercolor,
                           alphabet: alphabets[i],
                           ontap: () {
                             Navigator.push(
@@ -104,6 +106,7 @@ class _AlphabetSignCategoryState extends State<AlphabetSignCategory> {
                         for (int i = 18; i < 26; i++) ...[
                           AlphabetWidget(
                             alphabet: alphabets[i],
+                            containercolor: AppColors.alphabetcontainercolor,
                             ontap: () {
                               Navigator.push(
                                   context,
@@ -127,9 +130,11 @@ class _AlphabetSignCategoryState extends State<AlphabetSignCategory> {
 class AlphabetWidget extends StatelessWidget {
   final String alphabet;
   final VoidCallback ontap;
+  final Color containercolor;
   const AlphabetWidget({
     required this.alphabet,
     required this.ontap,
+    required this.containercolor,
     super.key,
   });
 
@@ -138,11 +143,11 @@ class AlphabetWidget extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-        width: 65,
-        height: 65,
+        width: 60,
+        height: 60,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-            color: AppColors.alphabetcontainercolor,
+            color: containercolor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppColors.white, width: 3)),
         child: TextWithStroke(

@@ -1,3 +1,4 @@
+import 'package:dictionaryapp/Src/Presentation/Categories/MatchingGame.dart';
 import 'package:dictionaryapp/Src/Utils/Constants.dart';
 import 'package:dictionaryapp/Src/Utils/Widgets.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _AlphabetdetailScreenState extends State<AlphabetdetailScreen> {
                           fontFamily: "coiny",
                           color: AppColors.white,
                           fontSize: 35),
-                      strokeWidth: 50.0,
+                      strokeWidth: 5.0,
                       strokeColor: Colors.black,
                     ),
                   ],
@@ -54,15 +55,20 @@ class _AlphabetdetailScreenState extends State<AlphabetdetailScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.asset(AppImages.uncleimg),
-                    TextWithStroke(
-                      text: widget.signtext,
-                      textStyle: const TextStyle(
-                          fontFamily: "coiny",
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.white,
-                          fontSize: 100),
-                      strokeWidth: 50.0,
-                      strokeColor: Colors.black,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=> MatchingGameScreen()));
+                      },
+                      child: TextWithStroke(
+                        text: widget.signtext,
+                        textStyle: const TextStyle(
+                            fontFamily: "coiny",
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.white,
+                            fontSize: 100),
+                        strokeWidth: 5.0,
+                        strokeColor: Colors.black,
+                      ),
                     ),
                     Image.asset(AppImages.antiimg),
                   ],
